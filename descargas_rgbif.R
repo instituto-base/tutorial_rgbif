@@ -128,7 +128,8 @@ registros_amphibia$categoria <- sp_amphibia$categoria[
 conteo_especie <- registros_amphibia%>%
   group_by(species) %>% #Agrupar datos por especie
   summarise(conteo = n()) %>%  #solo estamos contando el numero de filas por especies
-  ungroup
+  ungroup()
+
 conteo_categoria <-  registros_amphibia%>%
   group_by(categoria) %>% #Agrupar datos por categoría
   summarise(conteo = n()) %>% 
@@ -144,7 +145,7 @@ grafico_amenzas <- ggplot(conteo_categoria,
  
  print(grafico_amenzas)
  
-#utilizar ggplot interactico
+#utilizar ggplot interactivo
  install.packages("esquisse")
  install.packages("plotly")
  install.packages("ragg")
@@ -152,7 +153,7 @@ grafico_amenzas <- ggplot(conteo_categoria,
  library(ragg)
  esquisse::esquisser()
  
-#6. Extra: Mapa de Chile con el registro de amenazas
+#6. Extra: Mapa de Chile con los registros categorizados por amenzas
  
 #obtener el conteo por punto
  conteo_punto <- registros_amphibia%>%
